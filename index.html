@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Inés & Daniel — 04.09.2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Language Selector -->
+  <div class="lang-selector">
+    <button class="lang-btn active" data-lang="es">ES</button>
+    <button class="lang-btn" data-lang="eu">EU</button>
+    <button class="lang-btn" data-lang="ro">RO</button>
+  </div>
+
+  <!-- Hero Image -->
+  <section class="hero-image section visible">
+    <img src="img/hero-photo.png" alt="Inés & Daniel" class="hero-photo">
+    <h1 class="hero-names-overlay" data-i18n="hero_names">Inés & Daniel</h1>
+  </section>
+
+  <!-- Hero Info -->
+  <section class="hero-info section visible">
+    <p class="hero-tagline" data-i18n="hero_tagline">¡Nos casamos!</p>
+    <p class="hero-date" data-i18n="hero_date">4 de septiembre de 2027</p>
+    <p class="hero-time" data-i18n="hero_time">a las 13:00h</p>
+  </section>
+
+  <!-- Countdown -->
+  <section class="section countdown-section" id="countdown-section">
+    <h2 class="section-title" data-i18n="countdown_title">Cuenta atrás</h2>
+    <div class="countdown" id="countdown">
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-days">0</span>
+        <span class="countdown-label" data-i18n="countdown_days">días</span>
+      </div>
+      <span class="countdown-separator">:</span>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-hours">0</span>
+        <span class="countdown-label" data-i18n="countdown_hours">horas</span>
+      </div>
+      <span class="countdown-separator">:</span>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-minutes">0</span>
+        <span class="countdown-label" data-i18n="countdown_minutes">minutos</span>
+      </div>
+      <span class="countdown-separator">:</span>
+      <div class="countdown-item">
+        <span class="countdown-number" id="cd-seconds">0</span>
+        <span class="countdown-label" data-i18n="countdown_seconds">segundos</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Venue -->
+  <section class="section" id="venue">
+    <h2 class="venue-name" data-i18n="venue_title">Lugar de celebración</h2>
+    <img src="img/icons/masia.png" alt="" class="venue-icon">
+    <h3 class="section-title" data-i18n="venue_name">Restaurante Akebaso</h3>
+    <p class="venue-address">Barrio San Juan de Axpe 16,<br>Atxondo, Bizkaia</p>
+    <a href="https://maps.google.com/?q=Restaurante+Akebaso+Atxondo" target="_blank" rel="noopener" class="btn" data-i18n="venue_button">Cómo llegar</a>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Timeline -->
+  <section class="section" id="timeline">
+    <h2 class="section-title" data-i18n="timeline_title">Itinerario del día</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <img src="img/icons/bus-scaled.png" alt="" class="timeline-icon">
+        <div class="timeline-content">
+          <span class="timeline-time">12:30h</span>
+          <span class="timeline-label" data-i18n="timeline_bus">Autobús</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <img src="img/icons/flores.png" alt="" class="timeline-icon">
+        <div class="timeline-content">
+          <span class="timeline-time">13:00h</span>
+          <span class="timeline-label" data-i18n="timeline_welcome">Bienvenida</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <img src="img/icons/anillos.png" alt="" class="timeline-icon">
+        <div class="timeline-content">
+          <span class="timeline-time">13:30h</span>
+          <span class="timeline-label" data-i18n="timeline_ceremony">Ceremonia</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <img src="img/icons/copas.png" alt="" class="timeline-icon">
+        <div class="timeline-content">
+          <span class="timeline-time">14:30h</span>
+          <span class="timeline-label" data-i18n="timeline_cocktail">Cóctel</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <img src="img/icons/plato.png" alt="" class="timeline-icon">
+        <div class="timeline-content">
+          <span class="timeline-time">16:00h</span>
+          <span class="timeline-label" data-i18n="timeline_banquet">Banquete</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <img src="img/icons/fiesta.png" alt="" class="timeline-icon">
+        <div class="timeline-content">
+          <span class="timeline-time">18:00h</span>
+          <span class="timeline-label" data-i18n="timeline_party">Fiesta</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <img src="img/icons/bus-scaled.png" alt="" class="timeline-icon">
+        <div class="timeline-content">
+          <span class="timeline-time">23:30h</span>
+          <span class="timeline-label" data-i18n="timeline_bus_return">Autobús</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transport -->
+  <section class="section" id="transport">
+    <h2 class="section-title" data-i18n="transport_title">Transporte</h2>
+    <div class="transport-columns">
+      <div class="transport-card">
+        <p class="transport-direction" data-i18n="transport_outbound">Ida</p>
+        <p class="transport-detail" data-i18n="transport_outbound_detail">Desde Amorebieta (parada Ambulatorio)</p>
+        <p class="transport-time" data-i18n="transport_outbound_time">12:30h</p>
+      </div>
+      <div class="transport-card">
+        <p class="transport-direction" data-i18n="transport_return">Vuelta</p>
+        <p class="transport-detail" data-i18n="transport_return_detail">Hasta Amorebieta con parada en Elorrio*</p>
+        <p class="transport-time" data-i18n="transport_return_time">23:30h</p>
+      </div>
+    </div>
+    <p class="transport-footnote" data-i18n="transport_footnote">* ¡Que siga la fiesta! Destino para los que queramos seguir la fiesta ya que son las fiestas del pueblo</p>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Gift -->
+  <section class="section" id="gift">
+    <img src="img/icons/regalo-scaled.png" alt="" class="gift-icon">
+    <h2 class="section-title" data-i18n="gift_title">Regalo</h2>
+    <p class="gift-text" data-i18n="gift_text">Lo más importante para nosotros es poder celebrar este día con vosotros. Si además os hace ilusión tener un detalle con nosotros, os dejamos aquí los datos.</p>
+    <button class="btn" id="show-iban-btn" data-i18n="gift_show_iban" onclick="document.getElementById('gift-iban-box').style.display='inline-block'; this.style.display='none';">Ver datos bancarios</button>
+    <div class="gift-iban" id="gift-iban-box" style="display: none;">
+      <p class="gift-iban-label" data-i18n="gift_iban_label">IBAN</p>
+      <p data-i18n="gift_iban">ES00 0000 0000 0000 0000 0000</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- RSVP -->
+  <section class="section" id="rsvp">
+    <div class="rsvp-box">
+      <img src="img/icons/wedding-24.png" alt="" class="rsvp-icon">
+      <h2 class="section-title" data-i18n="rsvp_title">¿Nos acompañas?</h2>
+      <p class="rsvp-text" data-i18n="rsvp_text" data-i18n-html="true">Esperamos poder celebrar este día con vosotros. Cuando lo tengáis claro, confirmad vuestra asistencia <strong>antes del 15 de julio de 2027</strong>.</p>
+      <a href="formulario.html" class="btn" data-i18n="rsvp_button">Responder invitación</a>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Album -->
+  <section class="section" id="album">
+    <img src="img/icons/camara-scaled.png" alt="" class="album-icon">
+    <h2 class="section-title" data-i18n="album_title">Álbum de fotos</h2>
+    <p class="album-text" data-i18n="album_text">Cada fotografía guarda un instante irrepetible. Os invitamos a compartir vuestras fotos del día para crear un álbum de recuerdos juntos.</p>
+    <a href="#" class="btn btn-solid" data-i18n="album_button">Sube tus fotos</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Inés & Daniel — 04.09.2027</p>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

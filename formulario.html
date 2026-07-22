@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Confirmación — Inés & Daniel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Back Button -->
+  <a href="index.html" class="back-btn">←</a>
+
+  <!-- Language Selector -->
+  <div class="lang-selector">
+    <button class="lang-btn active" data-lang="es">ES</button>
+    <button class="lang-btn" data-lang="eu">EU</button>
+    <button class="lang-btn" data-lang="ro">RO</button>
+  </div>
+
+  <div class="form-page">
+
+    <!-- Header -->
+    <div class="form-header">
+      <h1 class="form-title" data-i18n="form_title">Confirmación de asistencia</h1>
+      <p class="form-intro" data-i18n="form_intro">¡Qué ilusión que estés aquí! Gracias por dedicar un minuto a rellenar este formulario.</p>
+    </div>
+
+    <form id="rsvp-form">
+
+      <!-- Section 1: Personal data -->
+      <div class="form-section">
+        <h2 class="form-section-title" data-i18n="section_personal">¡Empezamos contigo!</h2>
+        <hr style="border: none; border-top: 1px solid var(--color-border); margin-bottom: 1.5rem;">
+
+        <div class="form-group">
+          <label class="required" data-i18n="field_name">Nombre</label>
+          <input type="text" name="nombre" required>
+        </div>
+
+        <div class="form-group">
+          <label class="required" data-i18n="field_surname">Apellidos</label>
+          <input type="text" name="apellidos" required>
+        </div>
+
+        <div class="form-group">
+          <label class="required" data-i18n="field_attendance">¿Nos acompañas en nuestro gran día?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="asistencia" value="si" required>
+              <span data-i18n="field_attendance_yes">¡Sí, por supuesto que voy a ir :)</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="asistencia" value="no">
+              <span data-i18n="field_attendance_no">Lo siento mucho, no podré ir :(</span>
+            </label>
+          </div>
+        </div>
+
+      <div id="attending-sections">
+        <div class="form-group">
+          <label class="required" data-i18n="field_allergy">¿Tienes alguna alergia o dieta especial?</label>
+          <select name="alergia" required>
+            <option value="ninguna" data-i18n="allergy_none">Ninguna</option>
+            <option value="celiaco" data-i18n="allergy_celiac">Celíaco/a</option>
+            <option value="vegetariano" data-i18n="allergy_vegetarian">Vegetariano/a</option>
+            <option value="lactosa" data-i18n="allergy_lactose">Intolerancia a la lactosa</option>
+            <option value="otra" data-i18n="allergy_other">Otras consideraciones alimentarias</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="alergia_detalle" data-i18n="field_allergy_detail" placeholder="Si es necesario, especifica aquí tu dieta especial">
+        </div>
+
+        <!-- Section 2: Companions -->
+        <div class="form-section" id="section-companions">
+          <h2 class="form-section-title" data-i18n="section_companions">Acompañantes</h2>
+          <p class="form-section-sub" data-i18n="section_companions_sub">¿Quién más viene contigo? Añade aquí al resto de tu grupo</p>
+
+          <div id="companions-container"></div>
+          <button type="button" id="add-companion-btn" data-i18n="add_companion">+ Añadir acompañante</button>
+        </div>
+
+        <!-- Section 3: Transport -->
+        <div class="form-section" id="section-transport">
+          <h2 class="form-section-title" data-i18n="section_transport">Transporte</h2>
+          <div class="transport-info-note" data-i18n="transport_note">El autobús hará parada en Elorrio</div>
+
+          <div class="form-group">
+            <label class="required" data-i18n="field_bus">¿Os llevamos en el autobús?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="bus" value="Ida y vuelta" required>
+                <span data-i18n="bus_both">Sí, de ida y vuelta</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="bus" value="Solo ida">
+                <span data-i18n="bus_outbound">Solo de ida</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="bus" value="Solo vuelta">
+                <span data-i18n="bus_return">Solo de vuelta</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="bus" value="No, por nuestra cuenta">
+                <span data-i18n="bus_none">No, iremos por nuestra cuenta</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group" id="return-stop-section" style="display: none;">
+            <label class="required" data-i18n="field_return_stop">¿Dónde quieres que te dejemos en la vuelta?</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="parada_vuelta" value="amorebieta">
+                <span data-i18n="stop_amorebieta">Amorebieta</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="parada_vuelta" value="elorrio">
+                <span data-i18n="stop_elorrio">Elorrio</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Comments -->
+      <div class="form-section">
+        <div class="form-group">
+          <h2 class="form-section-title" data-i18n="field_comments">¿Algo que nos quieras comentar?</h2>
+          <textarea name="comentarios"></textarea>
+        </div>
+        <div class="form-group" id="song-section">
+          <h2 class="form-section-title" data-i18n="field_song">¿Alguna canción que no pueda faltar?</h2>
+          <textarea name="cancion"></textarea>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn" data-i18n="submit">Enviar</button>
+      <div id="form-message" class="form-message"></div>
+
+    </form>
+
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="index.html" style="color: var(--color-accent); text-decoration: none; font-size: 0.9rem;">← Inés & Daniel</a>
+    </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/form.js"></script>
+</body>
+</html>

@@ -435,8 +435,7 @@ body {
   font-style: italic;
 }
 
-/* Gift */
-#gift, #album, #venue, #timeline, #rsvp {
+#album, #venue, #timeline, #rsvp {
   padding-top: 1.5rem;
 }
 
@@ -449,39 +448,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-heading);
-}
-
-.gift-icon {
-  width: 200px;
-  height: 200px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-  opacity: 0.85;
-}
-
-.gift-text {
-  max-width: 500px;
-  margin: 0 auto 1.5rem;
-  font-size: 0.95rem;
-}
-
-.gift-iban {
-  background: var(--color-card-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
-  padding: 1rem 1.5rem;
-  display: inline-block;
-  font-family: monospace;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-}
-
-.gift-iban-label {
-  font-size: 0.8rem;
-  color: var(--color-accent);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.3rem;
 }
 
 /* RSVP */
@@ -505,18 +471,42 @@ body {
 }
 
 /* Album */
-.album-icon {
-  width: 200px;
-  height: 200px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-  opacity: 0.85;
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.album-text {
-  max-width: 500px;
-  margin: 0 auto 2rem;
-  font-size: 0.95rem;
+.album-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.album-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.album-item:hover img {
+  transform: scale(1.05);
+}
+
+.album-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-accent-light);
+  border-radius: 0.5rem;
 }
 
 /* Section Titles */
@@ -731,6 +721,41 @@ body {
   border: 1px solid var(--color-error);
 }
 
+/* Success Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 3rem 2.5rem;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-message {
+  font-size: 1.1rem;
+  color: var(--color-success);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero-names-overlay {
@@ -839,9 +864,9 @@ body {
     font-size: 0.85rem;
   }
 
-  .gift-iban {
-    font-size: 0.85rem;
-    padding: 0.8rem 1rem;
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
   }
 
   .lang-selector {

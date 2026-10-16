@@ -18,12 +18,7 @@ function addCompanion() {
       <input type="text" name="companion_name_${companionCount}" placeholder="${dict.field_companion_name}" required>
     </div>
     <div class="form-group">
-      <select name="companion_menu_${companionCount}">
-        <option value="adult">${dict.menu_adult}</option>
-        <option value="child">${dict.menu_child}</option>
-      </select>
-    </div>
-    <div class="form-group">
+      <label>${dict.field_companion_allergy}</label>
       <select name="companion_allergy_${companionCount}">
         <option value="none">${dict.allergy_none}</option>
         <option value="celiac">${dict.allergy_celiac}</option>
@@ -56,11 +51,10 @@ function handleFormSubmit(e) {
   const entries = container.querySelectorAll('.companion-entry');
   entries.forEach((entry, i) => {
     const name = entry.querySelector(`input[name^="companion_name"]`);
-    const menu = entry.querySelector(`select[name^="companion_menu"]`);
     const allergy = entry.querySelector(`select[name^="companion_allergy"]`);
     const other = entry.querySelector(`input[name^="companion_other"]`);
     if (name && name.value) {
-      companions.push(`${name.value} (${menu ? menu.value : ''}, ${allergy ? allergy.value : ''}, ${other ? other.value : ''})`);
+      companions.push(`${name.value} (${allergy ? allergy.value : ''}, ${other ? other.value : ''})`);
     }
   });
 
@@ -87,9 +81,10 @@ function handleFormSubmit(e) {
 
   if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
     const lang = currentLang || 'es';
-    messageEl.textContent = formTranslations[lang].submit_success;
-    messageEl.className = 'form-message success';
-    messageEl.style.display = 'block';
+    const modal = document.getElementById('success-modal');
+    const modalMsg = document.getElementById('modal-message');
+    modalMsg.textContent = formTranslations[lang].submit_success;
+    modal.classList.add('active');
     submitBtn.disabled = false;
     submitBtn.textContent = formTranslations[lang].submit;
     console.log('Form data (backend not configured):', data);
@@ -101,27 +96,14 @@ function handleFormSubmit(e) {
     mode: 'no-cors',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
-  })
-  .then(() => {
-    const lang = currentLang || 'es';
-    messageEl.textContent = formTranslations[lang].submit_success;
-    messageEl.className = 'form-message success';
-    messageEl.style.display = 'block';
-    form.reset();
-    // TODO: Activar cuando se termine de testear
-    // localStorage.setItem('wedding-form-sent', 'true');
-  })
-  .catch(() => {
-    const lang = currentLang || 'es';
-    messageEl.textContent = formTranslations[lang].submit_error;
-    messageEl.className = 'form-message error';
-    messageEl.style.display = 'block';
-  })
-  .finally(() => {
-    const lang = currentLang || 'es';
-    submitBtn.disabled = false;
-    submitBtn.textContent = formTranslations[lang].submit;
   });
+
+  const lang = currentLang || 'es';
+  const modal = document.getElementById('success-modal');
+  const modalMsg = document.getElementById('modal-message');
+  modalMsg.textContent = formTranslations[lang].submit_success;
+  modal.classList.add('active');
+  form.reset();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
